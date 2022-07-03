@@ -5,6 +5,7 @@ using WebApp.Models;
 
 namespace WebApp.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private readonly ProductDbContext DbContext;

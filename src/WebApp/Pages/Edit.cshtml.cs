@@ -6,9 +6,9 @@ using WebApp.Models;
 
 namespace WebApp.Pages
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
-
         public EditModel(ProductDbContext ctx) => DbContext = ctx;
 
         public ProductDbContext DbContext { get; set; }

@@ -6,6 +6,7 @@ using WebApp.Models;
 
 namespace WebApp.Pages
 {
+    [Authorize(Roles = "Admin")]
     public class AdminModel : PageModel
     {
 

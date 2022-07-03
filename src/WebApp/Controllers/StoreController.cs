@@ -4,6 +4,7 @@ using WebApp.Models;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class StoreController : Controller
     {
         private readonly ProductDbContext DbContext;
