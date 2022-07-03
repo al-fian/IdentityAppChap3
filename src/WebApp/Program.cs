@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Models;
+using WebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<ProductDbContext>(opts =>
 builder.Services.AddDbContext<IdentityDbContext>(opts =>
     opts.UseSqlite(builder.Configuration.GetConnectionString("IdentityConnection"),
     opts => opts.MigrationsAssembly("WebApp")));
+
+builder.Services.AddScoped<IEmailSender, ConsoleEmailSender>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>()
     .AddEntityFrameworkStores<IdentityDbContext>();
